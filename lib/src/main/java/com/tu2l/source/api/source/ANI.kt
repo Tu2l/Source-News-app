@@ -45,6 +45,7 @@ class ANI : _Base() {
 
 
     private fun getList(document: Document?, className: String?): List<News> {
+//        print(document)
         val newsList: MutableList<News> = ArrayList<News>()
         var i = 0
         val size = document?.select("div[class=$className]")?.size!!
@@ -67,7 +68,8 @@ class ANI : _Base() {
 
             news.story = item?.select("p[class=text small]")?.text()
             if (news.story == "")
-                news.story = item?.select("p")?.get(2)?.text()
+                if(item?.select("p")?.size!! > 1)
+                    news.story = item.select("p")?.get(2)?.text()
 
             news.source = "ANI"
             newsList.add(news)
@@ -142,8 +144,18 @@ class ANI : _Base() {
      */
     fun search(keyword: String): List<News> {
         val url = "$BASE/search/?query=$keyword"
-        return getList(getDocument(url), "col-sm-4 col-xs-12]")
+        return getList(getDocument(url), "col-sm-4 col-xs-12")
     }
+
+
+    /*
+    * get latest news from the portal
+    */
+    fun latestNews(): List<News> {
+        val url = "$BASE/latest-news/"
+        return getList(getDocument(url), "col-md-4 col-sm-6 col-xs-12 extra-related-block mb-4")
+    }
+
 
     /*
      * Get Video news list

@@ -7,6 +7,7 @@ fun main() {
     Thread {
         val ani = ANI()
 //        val newsList = ani.search("assam")
+//        val newsList = ani.latestNews()
         val newsList = ani.getVideoNewsList(ANI.VIDEO_NATIONAL)
         val gson = Gson()
         for (news in newsList)

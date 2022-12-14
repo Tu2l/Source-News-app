@@ -47,7 +47,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#C4FFFFFF"
+        android:background="#BE252525"
         android:orientation="vertical"
         android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="@+id/thumbnail">
@@ -60,7 +60,9 @@
             android:paddingHorizontal="5dp"
             android:textSize="16sp"
             android:textStyle="bold"
-            tools:text="Title" />
+            android:justificationMode="inter_word"
+            tools:text="Title"
+            tools:targetApi="o" />
 
         <View
             android:layout_width="match_parent"
@@ -74,7 +76,9 @@
             android:maxLines="3"
             android:padding="5dp"
             android:textSize="14sp"
-            tools:text="story" />
+            android:justificationMode="inter_word"
+            tools:text="story"
+            tools:ignore="UnusedAttribute" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

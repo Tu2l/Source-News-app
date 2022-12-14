@@ -40,6 +40,7 @@ class MainActivity : AppCompatActivity() {
         val toolBar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolBar)
         supportActionBar?.title = resources.getString(R.string.app_name)
+        supportActionBar?.hide()
     }
 
 
